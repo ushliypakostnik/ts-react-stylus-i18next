@@ -1,0 +1,44 @@
+// Project placeholders
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+// Text overflow ellipsis protection
+$string-ellipsis-protection
+  overflow hidden
+  text-overflow ellipsis
+  white-space nowrap
+
+
+// Very long letters protection
+$very-long-letters-protection
+  -ms-word-break break-all
+  word-break break-all
+  word-break break-word
+  -webkit-hyphens auto
+  -moz-hyphens auto
+  -ms-hyphens auto
+  hyphens auto
+
+
+// Classic lists
+$list-style
+  list-style-type disc
+  padding-left $gutter
+  margin-bottom ($gutter / 2)
+
+  > li
+    margin-bottom ($gutter / 4)
+
+
+// Quotes
+$quote-content
+  &:before
+    content open-quote
+
+  &:after
+    content close-quote
+
+  &:before,
+  &:after
+    color inherit

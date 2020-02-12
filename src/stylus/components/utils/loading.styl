@@ -1,0 +1,18 @@
+// Loader
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+.loading
+  display flex
+  justify-content center
+  align-items center
+  $size(100%, 100%)
+
+  &--base
+    $size(100%, 100vh)
+    height calc(var(--vh, 1vh) * 100)
+
+    .loader
+      transform translateY(-2vh) /* Fallback for browsers that do not support Custom Properties */
+      transform translateY(calc(var(--vh, 1vh) * -2))

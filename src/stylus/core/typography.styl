@@ -1,0 +1,115 @@
+// Typography
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+// Typographic Variables
+//////////////////////////////////////////////////////
+
+// Good line-height and letter-spacing
+
+$line-height = {
+  base: 1.428571429
+}
+
+$letter-spacing = {
+  normal: normal
+}
+
+// Guide
+
+$font-size = {
+  base: 16px,
+  coefficient: {
+    large: 1.5,
+    normal: 1.2,
+    small: 1.1,
+    xsmall: 0.8
+  }
+}
+
+$font-size['large'] = round($font-size.base * $font-size.coefficient.large)
+$font-size['normal'] = round($font-size.base * $font-size.coefficient.normal)
+$font-size['small'] = round($font-size.base * $font-size.coefficient.small)
+$font-size['xsmall'] = round($font-size.base * $font-size.coefficient.xsmall)
+
+$line-height['computed'] = round($font-size.base * $line-height.base)
+$line-height['large'] = ceil($line-height.computed * $font-size.coefficient.large)
+$line-height['normal'] = ceil($line-height.computed * $font-size.coefficient.normal)
+$line-height['small'] = ceil($line-height.computed * $font-size.coefficient.small)
+$line-height['xsmall'] = ceil($line-height.computed * $font-size.coefficient.xsmall)
+
+$font-family = {
+  sans: sans-serif
+}
+
+$font-weight = {
+  sans: {
+    regular: 400,
+    bold: 700
+  }
+}
+
+// Universal Typographic Mixin
+//////////////////////////////////////////////////////
+
+// We use one, only one, Karl, a universal mixin for all cases !!!!!!!!!!
+
+$text($font-family-text, $font-size-text, $font-weight-text)
+  font-family $font-family-text
+  font-size $font-size-text
+  font-weight $font-weight-text
+  letter-spacing $letter-spacing.normal
+
+  if $font-size-text == $font-size.large
+    line-height $line-height.large
+  if $font-size-text == $font-size.normal
+    line-height $line-height.normal
+  if $font-size-text == $font-size.small
+    line-height $line-height.small
+  if $font-size-text == $font-size.xsmall
+    line-height $line-height.xsmall
+  else
+    line-height ceil($font-size-text * $line-height.base)
+
+// Typographic Base
+//////////////////////////////////////////////////////
+
+// Regular paragraph
+p
+  color $color.text
+  margin-bottom $gutter
+  $text($font-family.sans, $font-size.small, $font-weight.sans.regular)
+
+strong
+  font-weight $font-weight.sans.bold;
+
+// Default headers
+
+h1
+  $text($font-family.sans, $font-size.large, $font-weight.sans.bold)
+
+  +$xs()
+    $text($font-family.sans, $font-size.normal, $font-weight.sans.bold)
+
+h2
+  $text($font-family.sans, $font-size.large, $font-weight.sans.regular)
+
+h3
+  $text($font-family.sans, $font-size.normal, $font-weight.sans.regular)
+
+h4
+  $text($font-family.sans, $font-size.small, $font-weight.sans.bold)
+
+h5
+  $text($font-family.sans, $font-size.xsmall, $font-weight.sans.bold)
+
+h6
+  $text($font-family.sans, $font-size.xsmall, $font-weight.sans.regular)
+
+h1, h2, h3
+  &:first-child
+    margin-top 0
+
+h1, h2, h3, h4, h5, h6
+  color $color.text

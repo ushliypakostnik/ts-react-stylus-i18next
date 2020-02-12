@@ -1,0 +1,101 @@
+// Project mixins
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+// Media
+//////////////////////////////////////////////////////
+// Breackpoins in stylus/utils/variables.styl
+
+
+$lg()
+  @media only screen and (min-width: $breackpoints.lg)
+    {block}
+
+$not-lg()
+  @media only screen and (max-width: $breackpoints.sm-max)
+    {block}
+
+$sm-min-not-lg()
+  @media only screen and (min-width: $breackpoints.sm) and (max-width: $breackpoints.sm-max)
+    {block}
+
+$not-xs()
+  @media only screen and (min-width: $breackpoints.sm)
+    {block}
+
+$xs()
+  @media only screen and (max-width: $breackpoints.xs-max)
+    {block}
+
+
+// Retina 2x
+$retina()
+  @media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+    only screen and (-moz-min-device-pixel-ratio: 1.5),
+    only screen and (-o-min-device-pixel-ratio: 3/2),
+    only screen and (min-device-pixel-ratio: 1.5)
+    {block}
+
+
+// Elements
+//////////////////////////////////////////////////////
+
+// Size )
+$size($width, $height)
+  width $width
+  height $height
+
+
+// Links
+$link-color($color, $color-hover)
+  $transition-default(color)
+
+  &,
+  &:focus
+    color $color
+
+  &:hover,
+  &:active
+    color $color-hover
+
+// Buttons
+
+$btn-color($color, $background)
+  background-color $background
+  color $color
+  $transition-default(background)
+
+  &:hover,
+  &:active
+    background-color darken($background, $fade-percent)
+    color $color
+
+$btn-transparent-color($color)
+  background-color transparent
+  border 1px solid $color
+  padding-top $btn.padding.base.vertical - 1
+  padding-bottom $btn.padding.base.vertical - 1
+  color $color
+  $transition-default(color)
+
+  &:hover,
+  &:active
+    color darken($color, $fade-percent)
+
+
+// Effects
+//////////////////////////////////////////////////////
+
+// Default transitions
+
+$transition-default($property)
+  will-change $property
+  transition $property $transition.duration $transition.timing-function $transition.delay
+
+$transitions-default()
+  list = ""
+  for property in arguments
+    list = join(', ', list, join(' ', property, $transition.duration, $transition.timing-function, $transition.delay));
+  will-change unquote(join(', ', arguments));
+  transition unquote(substr(list, 2, length(list) - 2))

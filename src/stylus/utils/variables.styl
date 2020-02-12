@@ -1,0 +1,147 @@
+// Project variables
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+// Sizes and layouts
+//////////////////////////////////////////////////////
+
+$gutter = 20px
+
+$input = {
+  height: $gutter * 2
+}
+
+$layout = {
+  dropdown: 1100,
+}
+
+
+// Breackpoints
+//////////////////////////////////////////////////////
+
+$breackpoints = {
+  min: 320px,
+  xs: 360px,
+  sm: 768px,
+  lg: 1200px
+}
+
+$breackpoints['sm-max'] = $breackpoints.lg - 1
+$breackpoints['xs-max'] = $breackpoints.sm - 1
+
+
+// Effects
+//////////////////////////////////////////////////////
+
+$transition = {
+  duration: 0.2s,
+  timing-function: ease-out,
+  delay: 0s
+}
+
+$shadow = {
+  coords-x: 0,
+  coords-y: 1px,
+  size: 4px,
+  stretch: 0
+}
+
+$fade-percent = 8%
+
+
+// Colors
+//////////////////////////////////////////////////////
+
+$color = {
+
+  // Palette
+  //////////////////////////////////////////////////////
+
+  mint: #44c6a8,
+  cian: #22b394,
+  blue: #2d84c6,
+  green: #21b499,
+  orange: #f0ac61,
+  red: #ef2a33,
+
+  //Grays
+
+  white: #fff,
+  black: #000,
+  gray: #cfdae0,
+
+  // Special
+
+  light: #fafafa,
+
+  // Text
+
+  text: #6c7a89,
+
+  // Links
+
+  link: #557aa7,
+  link-hover: #44529c,
+}
+
+// Dependencies colors
+
+// Main palette
+
+$color['primary'] = $color.mint
+$color['second'] = $color.blue
+$color['warning'] = $color.orange
+$color['error'] = $color.red
+$color['success'] = $color.green
+
+// Shadows
+
+$color['shadow'] = rgba($color.black, 0.15)
+$shadow['color'] = $color.shadow
+
+// Functional
+
+$color['disabled'] = darken($color.light, $fade-percent * 4)
+$color['placeholder'] = $color.disabled
+
+$color['background'] = $color.light
+
+// Borders
+
+$color['border'] = $color.gray
+
+
+// Elements
+//////////////////////////////////////////////////////
+
+// Roundings
+
+$border = {
+  radius: {
+    small: 2px,
+    large: 4px
+  },
+  color: $color.border
+}
+
+// Buttons paddings
+
+$btn = {
+  padding: {
+    base: {
+      horizontal: $gutter * 1.5,
+      vertical: 6px
+    }
+  }
+}
+
+
+// Views
+//////////////////////////////////////////////////////
+
+$loader = {
+  size: {
+    default: 100px
+  }
+}

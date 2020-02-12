@@ -1,0 +1,42 @@
+// Project Animations
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+// Multiply Animation Mixin
+$animations()
+  animations = ""
+  for a in arguments
+    animations = join(', ', animations, a);
+  animation unquote(substr(animations, 2, length(animations)))
+
+
+// Keyframes examples
+//////////////////////////////////////////////////////
+// Animation class examples in stylus/core/utilities.styl
+
+vendors = official
+
+@keyframes fadeOn
+  from
+    opacity 0
+
+  to
+    opacity 1
+
+@keyframes fadeOut
+  from
+    opacity 1
+
+  to
+    opacity 0
+
+@keyframes pulse
+  0%
+    transform scale3d(0.8, 0.8, 0.8)
+
+  50%
+    transform scale3d(1, 1, 1);
+
+  100%
+    transform scale3d(0.8, 0.8, 0.8)
