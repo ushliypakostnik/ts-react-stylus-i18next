@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from 'react-i18next';
 
-const Main : React.SFC = () => {
+const Main : React.FunctionComponent = () => {
   const { t } = useTranslation();
 
   return (

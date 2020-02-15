@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from 'react-i18next';
 
-const Page404 : React.SFC = () => {
+const Page404 : React.FunctionComponent = () => {
   const { t } = useTranslation();
 
   return (

@@ -8,7 +8,7 @@ type LoadingProps = {
   className: string,
 };
 
-const Loading : React.SFC<LoadingProps> = (props) => {
+const Loading : React.FunctionComponent<LoadingProps> = (props) => {
   const loagingClasses = classNames(
     'loading',
     props.className,
