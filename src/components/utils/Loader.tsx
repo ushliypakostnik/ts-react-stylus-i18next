@@ -4,7 +4,7 @@ type LoaderProps = {
   size: number,
 };
 
-const Loader : React.SFC<LoaderProps> = (props) => {
+const Loader : React.FunctionComponent<LoaderProps> = (props) => {
   const { size } = props;
 
   return (
@@ -16,7 +16,7 @@ const Loader : React.SFC<LoaderProps> = (props) => {
         y="0px"
         width={`${size}px`}
         height={`${size}px`}
-        viewBox={`0 0 ${size / 2}px ${size / 2}`}>
+        viewBox={`0 0 ${size / 2} ${size / 2}`}>
         <path
           fill="#000"
           d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
