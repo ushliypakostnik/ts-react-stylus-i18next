@@ -1,3 +1,6 @@
+import { UtilsType } from './modules/utils/types';
+import { TestType } from './modules/test/types';
+
 export interface ObjectOfStringsType {
   readonly [key: string] : string;
 };
@@ -13,11 +16,8 @@ export interface LanguageObjectType {
 
 export interface StoreType {
   readonly rootReducer: {
-    readonly utils : {
-      readonly language : string;
-      readonly isAcceptStorageMessage : boolean;
-      readonly deviceType : string | null;
-    };
+    readonly utils : UtilsType;
+    readonly test : TestType;
   };
   readonly router? : any;
 };

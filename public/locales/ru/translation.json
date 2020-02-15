@@ -1,0 +1,18 @@
+{
+  "views": {
+    "main": {
+      "name": "Главная",
+      "title": "Добро пожаловать в react используюший react-i18next!!!"
+    },
+    "page404": {
+      "name": "404",
+      "title": "Страница не найдена!"
+    }
+  },
+  "layout": {
+    "storage-message": {
+      "text": "Тут про куки!",
+      "button": "Кнопка"
+    }
+  }
+}

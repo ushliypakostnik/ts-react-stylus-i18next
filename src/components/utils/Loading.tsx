@@ -1,12 +1,14 @@
 import React from "react";
 import classNames from 'classnames';
 
-import '../../stylus/components/utils/loader.styl';
-
 import Loader from './Loader';
 
-const Loading : React.SFC<any> = (props) => {
+type LoadingProps = {
+  size: number,
+  className: string,
+};
 
+const Loading : React.SFC<LoadingProps> = (props) => {
   const loagingClasses = classNames(
     'loading',
     props.className,

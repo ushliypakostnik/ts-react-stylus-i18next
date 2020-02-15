@@ -1,0 +1,19 @@
+{
+  "views": {
+    "main": {
+      "name": "Main",
+      "title": "Welcome to react using react-i18next!!!"
+    },
+    "page404": {
+      "name": "404",
+      "title": "Page not found!"
+    }
+  },
+  "layout": {
+    "storage-message": {
+      "text": "Text about cookies!",
+      "button": "OK"
+    }
+  }
+}
+

@@ -3,13 +3,13 @@ import { Action, ActionCreator } from 'redux';
 // Actions Types
 ////////////////////////////////////////////////////////////
 
-export const ACTION_EXAMPLE = 'ACTION_EXAMPLE';
+export const ACTION_TEST = 'ACTION_TEST';
 
 // Action Creators
 ////////////////////////////////////////////////////////////
 
-export const actionExample : ActionCreator<Action> = () => {
+export const actionTest : ActionCreator<Action> = () => {
   return {
-    type: ACTION_EXAMPLE,
+    type: ACTION_TEST,
   };
 };

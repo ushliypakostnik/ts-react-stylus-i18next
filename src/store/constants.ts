@@ -47,5 +47,8 @@ export const INITIAL_STATE : StoreType = {
       isAcceptStorageMessage: STORAGE_MESSAGE_ACCEPT,
       deviceType: null,
     },
+    test: {
+      test: "AAAAAAAAAAA",
+    },
   },
 };

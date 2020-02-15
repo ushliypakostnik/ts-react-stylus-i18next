@@ -1,21 +1,11 @@
-import { Action } from 'redux';
+import { combineReducers, Reducer } from 'redux';
 
-import { INITIAL_STATE } from './constants';
-import { StoreType } from './types';
-import { ACTION_EXAMPLE } from './actions';
+import utils from './modules/utils/reducer';
+import test from './modules/test/reducer';
 
-const rootReducer = (state : StoreType, action: Action & any) => {
-  if (typeof state === 'undefined') {
-    return INITIAL_STATE;
-  }
-
-  switch (action.type) {
-    case ACTION_EXAMPLE:
-      return Object.assign({}, state, {
-      });
-    default:
-      return state;
-  };
-};
+const rootReducer = combineReducers<Reducer>({
+  utils,
+  test,
+});
 
 export default rootReducer;

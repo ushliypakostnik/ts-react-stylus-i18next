@@ -1,4 +1,9 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import {
+  createStore,
+  combineReducers,
+  applyMiddleware,
+  Reducer,
+} from 'redux';
 import { routerMiddleware } from 'react-router-redux';
 import { connectRouter } from 'connected-react-router';
 import { createBrowserHistory as createHistory } from 'history';
@@ -6,8 +11,8 @@ import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 
 import {
-  LOCALSTORAGE,
-  SESSIONSTORAGE,
+  // LOCALSTORAGE,
+  // SESSIONSTORAGE,
   INITIAL_STATE,
 } from './constants';
 import { StoreType } from './types';
@@ -26,9 +31,14 @@ const localStorageMiddleware = ({getState} : any) => {
   return (next : any) => (action: any) => {
     const result = next(action);
     /*
-    if (getState().rootReducer.auth.isAuth) {
-      localStorage.setItem(LOCAL.PROFILE, JSON.stringify(
-          getState().rootReducer.user.profile,
+    if (getState().rootReducer.utils.isAcceptStorageMessage) {
+      localStorage.setItem(LOCALSTORAGE.STORAGE_MESSAGE, JSON.stringify(
+          getState().rootReducer.utils.isAcceptStorageMessage,
+      ));
+
+      /*
+      sessionStorage.setItem(SESSIONSTORAGE.item, JSON.stringify(
+          getState().rootReducer.module.item,
       ));
     }*/
     return result;
@@ -38,15 +48,17 @@ middlewares.push(localStorageMiddleware);
 
 const reHydrateStore = (state: StoreType) => {
   /*if (localStorage.getItem(LOCAL.PROFILE) !== null) {
-    const localData = JSON.parse(localStorage.getItem(LOCAL.PROFILE) || '{}');
+    const localDataAccept = JSON.parse(localStorage.getItem(LOCALSTORAGE.STORAGE_MESSAGE) || '{}');
+
+    // const localData = JSON.parse(sessionStorage.getItem(SESSIONSTORAGE.ITEM) || null);
+
     const _state = Object.assign({}, state, {
       rootReducer: {
         ...state.rootReducer,
-        user: {
-          ...state.rootReducer.user,
-          profile: localData,
+        utils: {
+          ...state.rootReducer.utils,
+          isAcceptStorageMessage: localDataAccept,
         },
-      },
     });
     return _state;
   }*/
@@ -56,12 +68,13 @@ const reHydrateStore = (state: StoreType) => {
 export const history = createHistory();
 middlewares.push(routerMiddleware(history));
 
+
 function configureStore(state : StoreType) {
   return createStore(
-    combineReducers({
+    combineReducers<Reducer>({
       rootReducer,
       router: connectRouter(history),
-    } as any),
+    }),
     reHydrateStore(state),
     applyMiddleware(...middlewares)
   );

@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from "connected-react-router";
 
+import './utils/i18n';
+
 import { DESIGN } from './store/constants';
 
 import Layout from './components/layout/Layout';
