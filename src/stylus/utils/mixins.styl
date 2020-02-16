@@ -48,40 +48,40 @@ $size($width, $height)
 
 
 // Links
-$link-color($color, $color-hover)
+$link-color($colors, $colors-hover)
   $transition-default(color)
 
   &,
   &:focus
-    color $color
+    color $colors
 
   &:hover,
   &:active
-    color $color-hover
+    color $colors-hover
 
 // Buttons
 
-$btn-color($color, $background)
+$buttons-color($colors, $background)
   background-color $background
-  color $color
+  color $colors
   $transition-default(background)
 
   &:hover,
   &:active
     background-color darken($background, $fade-percent)
-    color $color
+    color $colors
 
-$btn-transparent-color($color)
+$buttons-transparent-color($colors)
   background-color transparent
-  border 1px solid $color
-  padding-top $btn.padding.base.vertical - 1
-  padding-bottom $btn.padding.base.vertical - 1
-  color $color
+  border 1px solid $colors
+  padding-top $buttons.padding.base.vertical - 1
+  padding-bottom $buttons.padding.base.vertical - 1
+  color $colors
   $transition-default(color)
 
   &:hover,
   &:active
-    color darken($color, $fade-percent)
+    color darken($colors, $fade-percent)
 
 
 // Effects

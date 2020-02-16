@@ -1,7 +1,6 @@
 // Main Elements (easy normalize)
 //////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
-//////////////////////////////////////////////////////
 
 // @media all {}
 
@@ -11,8 +10,8 @@ html
 
 body
   min-height 100%
-  color $color.text
-  background $color.white
+  color $colors.text
+  background $colors.white
   margin 0
   padding 0
   quotes "\00ab" "\00bb"
@@ -26,7 +25,7 @@ body
   -moz-osx-font-smoothing grayscale
 
   ::selection
-    background transparentify($color.second, $color.second, 0.5)
+    // background transparentify($colors.second, $colors.second, 0.5)
 
 
 // No outline on focus controls!!!
@@ -62,7 +61,7 @@ a
 // Links
 a
   text-decoration none
-  $link-color($color.link, $color.link-hover)
+  $link-color($colors.link, $colors.link-hover)
 
 
 // Buttons
@@ -70,9 +69,9 @@ a
 button
   cursor pointer
   border none
-  border-radius $border.radius.large
-  padding $btn.padding.base.vertical $btn.padding.base.horizontal
-  $btn-color($color.white, $color.primary)
+  border-radius $borders.radius.large
+  padding $buttons.padding.base.vertical $buttons.padding.base.horizontal
+  $buttons-color($colors.white, $colors.primary)
   $text($font-family.sans, $font-size.normal, $font-weight.sans.regular)
 
 
@@ -80,13 +79,13 @@ button
 
 input
 textarea
-  border 1px solid $color.border
-  border-radius $border.radius.small
+  border 1px solid $colors.border
+  border-radius $borders.radius.small
   padding 0 ($gutter / 2)
   $text($font-family.sans, $font-size.normal, $font-weight.sans.regular)
 
 input
-  height $input.height;
+  height $inputs.height;
 
 textarea
   display: block
@@ -136,23 +135,23 @@ iframe
 
 /* Track */
 ::-webkit-scrollbar-track
-    background $color.primary
+    background $colors.primary
 
 /* Handle */
 ::-webkit-scrollbar-thumb
-    background: $color.text
+    background: $colors.text
 
 // Customize Placeholder
 //////////////////////////////////////////////////////
 
 ::-webkit-input-placeholder
-  color $color.placeholder !important
+  color $colors.placeholder !important
 ::-moz-placeholder
-  color $color.placeholder !important /* Firefox 19+ */
+  color $colors.placeholder !important /* Firefox 19+ */
 :-moz-placeholder
-  color $color.placeholder !important /* Firefox 18- */
+  color $colors.placeholder !important /* Firefox 18- */
 :-ms-input-placeholder
-  color: $color.placeholder !important
+  color: $colors.placeholder !important
 
 :focus::-webkit-input-placeholder
   color transparent

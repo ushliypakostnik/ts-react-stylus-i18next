@@ -1,10 +1,30 @@
 // Project utilities
 //////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
-//////////////////////////////////////////////////////
 
 // Amimation class example
 .pulse {
   will-change transform, opacity
   $animations(pulse round($transition.duration * 10) infinite, fadeOn round($transition.duration * 3) forwards)
 }
+
+
+// Elements
+//////////////////////////////////////////////////////
+
+// Fixed container
+.container
+  @extends $container
+  margin 0 auto
+
+// Rubber Container
+.container-fluid
+  @extends $container
+  width 100%
+
+// nowrap spans
+.nowrap
+  white-space nowrap
+
+.text--center
+  text-align center

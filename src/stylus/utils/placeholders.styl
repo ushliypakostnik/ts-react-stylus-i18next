@@ -1,7 +1,26 @@
 // Project placeholders
 //////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
-//////////////////////////////////////////////////////
+
+$scroll-optimization
+  transform translate3d(0, 0, 0)
+  will-change scroll-position
+
+$container
+  padding-left 10vw
+  padding-right 10vw
+
+  +$xs()
+    padding-left $gutter
+    padding-right $gutter
+
+$overlay
+  position absolute
+  top 0
+  left 0
+  right 0
+  bottom 0
+  $size(100%, 100%)
 
 // Text overflow ellipsis protection
 $string-ellipsis-protection

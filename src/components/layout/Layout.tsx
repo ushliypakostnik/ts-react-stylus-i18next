@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import { DESIGN } from '../../store/constants';
 import { StoreType } from '../../store/types';
 
+import Header from './Header';
 import Main from '../views/Main/Main';
 import Page404 from '../views/Page404';
 
@@ -53,7 +54,7 @@ class App extends React.Component<Props, State> {
           {/* <Resize /> */}
           {/* !isAcceptStorageMessage && <StorageMessage /> */}
             {/* <ScrollToTop /> */}
-              {/* <Header /> */}
+              <Header />
               <main role="main">
                 <Switch>
                   <Redirect exact from='/' to='/main'/>

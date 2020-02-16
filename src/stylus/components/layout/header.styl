@@ -1,0 +1,21 @@
+// Header
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+.header
+  background $colors.black
+  position fixed
+  top 0
+  z-index $layouts.fixed
+  $size(100%, $header.height)
+
+  .container
+    height $header.height
+    display flex
+    align-items center
+    justify-content flex-end
+
+  &__right
+    width 100%
+    display flex
+    justify-content space-between
