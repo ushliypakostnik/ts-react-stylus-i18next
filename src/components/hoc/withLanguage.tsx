@@ -29,7 +29,7 @@ const withLanguage = <P extends Props>(Component: React.ComponentType<P>) => {
     readonly state : State = initialState;
 
     render() {
-      const { language } = this.props;
+      const { language } = this.state;
 
       return <Component language={language} {...this.props as P} />;
     };
