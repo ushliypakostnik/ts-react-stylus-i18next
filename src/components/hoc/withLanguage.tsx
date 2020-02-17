@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Subtract } from 'utility-types';
 import { compose } from "redux";
 import { connect } from 'react-redux';
 
