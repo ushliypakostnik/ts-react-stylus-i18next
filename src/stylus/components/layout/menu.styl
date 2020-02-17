@@ -1,0 +1,19 @@
+// App common widgets styles
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+.menu
+  user-select none
+  display flex
+  flex-direction row
+
+  ul
+    display flex
+    flex-direction row
+    align-items center
+
+    > li
+      $text($font-family.sans, 20px, $font-weight.sans.regular)
+
+      &:not(:last-child)
+        margin-right 60px

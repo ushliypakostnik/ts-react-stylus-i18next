@@ -9,34 +9,94 @@
 
 
 $lg()
-  @media only screen and (min-width: $breackpoints.lg)
+  @media only screen and (min-width $breackpoints.lg)
     {block}
 
 $not-lg()
-  @media only screen and (max-width: $breackpoints.sm-max)
+  @media only screen and (max-width $breackpoints.sm-max)
     {block}
 
-$sm-min-not-lg()
-  @media only screen and (min-width: $breackpoints.sm) and (max-width: $breackpoints.sm-max)
+$sm-and-md()
+  @media only screen and (min-width $breackpoints.sm) and (max-width $breackpoints.md-max)
+    {block}
+
+$not-gadgets()
+  @media only screen and (min-width $breackpoints.md)
+    {block}
+
+$gadgets()
+  @media only screen and (max-width $breackpoints.sm-max)
+    {block}
+
+$md()
+  @media only screen and (min-width $breackpoints.md) and (max-width $breackpoints.md-max)
+    {block}
+
+$sm()
+  @media only screen and (min-width $breackpoints.sm) and (max-width $breackpoints.sm-max)
     {block}
 
 $not-xs()
-  @media only screen and (min-width: $breackpoints.sm)
+  @media only screen and (min-width $breackpoints.sm)
     {block}
 
 $xs()
-  @media only screen and (max-width: $breackpoints.xs-max)
+  @media only screen and (max-width $breackpoints.xs-max)
     {block}
 
+$min()
+  @media only screen and (max-width $breackpoints.xs)
+    {block}
+
+$min--landscape()
+  +$xs()
+    +$landscape()
+      @media (max-height: ($breackpoints.min + 10px))
+        {block}
+
+$landscape()
+  @media only screen and (orientation: landscape)
+    {block}
+
+$portrait()
+  @media only screen and (orientation: portrait)
+    {block}
+
+// Specific gadgets
+
+// For problem with open keyboard on vertical mobiles
+$small-open()
+  @media (max-width 420px) and (max-height 400px)
+    {block}
+
+$iPadPro--landscape()
+  @media only screen and (orientation landscape) and (min-height 1000px) and (min-width ($breackpoints.md + 1px)) and (max-width 1400px)
+    {block}
+
+$iPadPro--portrait()
+  @media only screen and (orientation portrait) and (min-height 1300px) and (min-width ($breackpoints.md - 1px)) and (max-width ($breackpoints.md + 50px))
+    {block}
+
+$iPhoneX--landscape()
+  @media only screen and (orientation landscape) and (min-width $breackpoints.sm) and (max-width ($breackpoints.md - 20px)) and (max-height 400px)
+    {block}
+
+$iPhoneX--portrait()
+  @media only screen and (orientation portrait) and (min-height $breackpoints.sm) and (max-height $breackpoints.md - 10px) and (max-width: 450px)
+    {block}
 
 // Retina 2x
 $retina()
-  @media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
-    only screen and (-moz-min-device-pixel-ratio: 1.5),
-    only screen and (-o-min-device-pixel-ratio: 3/2),
-    only screen and (min-device-pixel-ratio: 1.5)
+  @media only screen and (-Webkit-min-device-pixel-ratio 1.5),
+    only screen and (-moz-min-device-pixel-ratio 1.5),
+    only screen and (-o-min-device-pixel-ratio 3/2),
+    only screen and (min-device-pixel-ratio 1.5)
     {block}
 
+$safari-only()
+  @media not all and (min-resolution .001dpcm)
+    @supports (-webkit-appearance none) and (stroke-color transparent)
+      {block}
 
 // Elements
 //////////////////////////////////////////////////////
@@ -97,5 +157,5 @@ $transitions-default()
   list = ""
   for property in arguments
     list = join(', ', list, join(' ', property, $transition.duration, $transition.timing-function, $transition.delay));
-  will-change unquote(join(', ', arguments));
+  will-change unquote(join(', ', arguments))
   transition unquote(substr(list, 2, length(list) - 2))

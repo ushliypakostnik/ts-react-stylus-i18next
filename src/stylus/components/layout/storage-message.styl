@@ -1,0 +1,29 @@
+// Storage-message
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+.storage-message
+  height $storage-message.height
+  color $colors.white
+  background $colors.black
+  display flex
+  align-items center
+  position fixed
+  left 0
+  right 0
+  bottom 0
+  z-index $layouts.modal + 100
+
+  .container
+    display flex
+    flex-direction row
+
+  &__text
+    display flex
+    align-items center
+    padding-right $gutter * 2
+    $text($font-family.sans, 20px, $font-weight.sans.regular)
+    line-height 23px
+
+  .btn
+    white-space nowrap

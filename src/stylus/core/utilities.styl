@@ -3,10 +3,9 @@
 //////////////////////////////////////////////////////
 
 // Amimation class example
-.pulse {
+.pulse
   will-change transform, opacity
   $animations(pulse round($transition.duration * 10) infinite, fadeOn round($transition.duration * 3) forwards)
-}
 
 
 // Elements
@@ -28,3 +27,86 @@
 
 .text--center
   text-align center
+
+
+// Visibility utilities
+//////////////////////////////////////////////////////
+
+// stylelint-disable declaration-no-important
+.visible--desktop,
+.visible--gadgets,
+.visible--tablet,
+.visible--mobile,
+.visible--desktop--inline-block,
+.visible--gadgets--inline-block,
+.visible--tablet-inline-block,
+.visible--mobile--inline-block,
+.visible--desktop--inline,
+.visible--gadgets--inline,
+.visible--tablet--inline,
+.visible--mobile--inline
+  display none !important
+
+.visible--desktop
+  +$not-gadgets()
+    display block !important
+
+.visible--gadgets
+  +$gadgets()
+    display block !important
+
+.visible--tablet
+  +$sm()
+    display block !important
+
+.visible--mobile
+  +$xs()
+    display block !important
+
+.visible--desktop--inline-block
+  +$not-gadgets()
+    display inline-block !important
+
+.visible--gadgets--inline-block
+  +$gadgets()
+    display inline-block !important
+
+.visible--tablet--inline-block
+  +$sm()
+    display inline-block !important
+
+.visible--mobile--inline-block
+  +$xs()
+    display inline-block !important
+
+.visible--desktop--inline
+  +$not-gadgets()
+    display inline !important
+
+.visible--gadgets--inline
+  +$gadgets()
+    display inline !important
+
+.visible--tablet--inline
+  +$sm()
+    display inline !important
+
+.visible--mobile--inline
+  +$xs()
+    display inline !important
+
+.hidden--desktop
+  +$not-gadgets()
+    display none !important
+
+.hidden--gadgets
+  +$gadgets()
+    display none !important
+
+.hidden--tablet
+  +$sm()
+    display none !important
+
+.hidden--mobile
+  +$xs()
+    display none !important
