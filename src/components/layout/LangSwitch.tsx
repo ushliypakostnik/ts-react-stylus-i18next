@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import * as React from "react";
 import { AnyAction, compose } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { WithTranslation, withTranslation } from 'react-i18next';
@@ -30,7 +30,7 @@ const initialState = {
 
 type State = Readonly<typeof initialState>;
 
-class LangSwitch extends PureComponent<Props, State> {
+class LangSwitch extends React.PureComponent<Props, State> {
   public static getDerivedStateFromProps = (nextProps : Props, prevState : State) => ({
     language: nextProps.language,
   });

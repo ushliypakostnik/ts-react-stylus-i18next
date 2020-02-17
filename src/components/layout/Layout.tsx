@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import * as React from "react";
 import {
   Route,
   Redirect,
@@ -10,6 +10,8 @@ import { DESIGN } from '../../store/constants';
 import { StoreType } from '../../store/types';
 
 import Header from './Header';
+import Resize from './Resize';
+import StorageMessage from './StorageMessage';
 import Main from '../views/Main/Main';
 import Page404 from '../views/Page404';
 
@@ -46,13 +48,13 @@ class App extends React.Component<Props, State> {
   };
 
   public render() {
-    // const { isAcceptStorageMessage } = this.state;
+    const { isAcceptStorageMessage } = this.state;
 
     return (
-      <Fragment>
+      <React.Fragment>
         <div className="layout" id="layout">
-          {/* <Resize /> */}
-          {/* !isAcceptStorageMessage && <StorageMessage /> */}
+          <Resize />
+          { !isAcceptStorageMessage && <StorageMessage /> }
             {/* <ScrollToTop /> */}
               <Header />
               <main role="main">
@@ -63,7 +65,7 @@ class App extends React.Component<Props, State> {
                 </Switch>
               </main>
         </div>
-      </Fragment>
+      </React.Fragment>
     );
   }
 };

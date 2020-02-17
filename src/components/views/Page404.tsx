@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { useTranslation } from 'react-i18next';
 
 const Page404 : React.FunctionComponent = () => {
@@ -8,8 +8,10 @@ const Page404 : React.FunctionComponent = () => {
     <section className="page--404">
       <div className="container">
         <div className="text">
-          <h1>404</h1>
-          <h2>{t('views.page404.title')}</h2>
+          <div className="text__wrapper">
+            <h1>404</h1>
+            <h2>{t('views.page404.title')}</h2>
+          </div>
         </div>
       </div>
     </section>
