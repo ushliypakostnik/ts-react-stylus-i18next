@@ -11,7 +11,7 @@ import { rememberLanguage } from '../../utils/storage';
 import { LANGUAGES } from '../../store/constants';
 import { setLanguage } from '../../store/modules/utils/actions';
 
-// import withLanguage from '../hoc/withLanguage';
+import withLanguage from '../hoc/withLanguage';
 
 const LANG_SWITCH = 'language-switch';
 
@@ -31,10 +31,6 @@ const initialState = {
 type State = Readonly<typeof initialState>;
 
 class LangSwitch extends React.PureComponent<Props, State> {
-  public static getDerivedStateFromProps = (nextProps : Props, prevState : State) => ({
-    language: nextProps.language,
-  });
-
   readonly state : State = initialState;
 
   public componentDidMount() {
@@ -89,19 +85,13 @@ class LangSwitch extends React.PureComponent<Props, State> {
   };
 };
 
-const mapStateToProps = (state : StoreType) : StateToProps => ({
-  language: state.rootReducer.utils.language,
-});
-
 const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, AnyAction>) : DispatchProps => ({
   setLanguage: (language : string) => dispatch(setLanguage(language)),
 });
 
-/*
-const Composed = compose(
-  connect(null, mapDispatchToProps),
+const Composed = compose<any>(
   withLanguage,
+  connect(null, mapDispatchToProps),
 );
-*/
 
-export default connect(mapStateToProps, mapDispatchToProps)(LangSwitch);
+export default Composed(LangSwitch);
