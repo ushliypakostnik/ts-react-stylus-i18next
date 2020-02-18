@@ -22,18 +22,9 @@ const initialState = {
 };
 
 class Resize extends React.PureComponent<Props, State> {
-  //constructor(props) {
-  //  super(props);
-  //  this.scrollbarWidth = null;
-  //}
-
-  //componentDidMount() {
-  //  this.scrollbarWidth = ScreenHelper.getScrollbarWidth();
-  //}
-
   readonly state : State = initialState;
 
-  getDeviceType = () => {
+  private getDeviceType = () => {
     if (ScreenHelper.isDesktop()) {
       return DESIGN.DEVICES_TYPES[0];
     } else if (ScreenHelper.isSM()) {
@@ -43,11 +34,11 @@ class Resize extends React.PureComponent<Props, State> {
     }
   }
 
-  onResize = () => {
+  private onResize = () => {
     this.props.resize(this.getDeviceType());
   };
 
-  render() {
+  public render() : React.ReactNode {
     return (
       <div className="resize">
         <ReactResizeDetector handleWidth handleHeight onResize={this.onResize} />

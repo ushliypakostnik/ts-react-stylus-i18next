@@ -1,13 +1,11 @@
 import * as React from "react";
 import { AnyAction, compose } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
-import { WithTranslation, withTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
 
-import { StoreType } from '../../store/types';
+import { WithLanguage } from '../hoc/withLanguage';
 
-import { rememberLanguage } from '../../utils/storage';
 import { LANGUAGES } from '../../store/constants';
 import { setLanguage } from '../../store/modules/utils/actions';
 
@@ -20,10 +18,9 @@ interface DispatchProps {
 };
 
 interface StateToProps {
-  language : string;
 };
 
-interface Props extends StateToProps, DispatchProps {};
+interface Props extends StateToProps, WithLanguage, DispatchProps {};
 
 const initialState = {
 };
@@ -61,7 +58,7 @@ class LangSwitch extends React.PureComponent<Props, State> {
     this.props.setLanguage(language);
   };
 
-  render() {
+  public render() : React.ReactNode {
     const buttonClasses = classNames(
       LANG_SWITCH,
       { [`${LANG_SWITCH}--active`]: this.getButtonState() },
@@ -72,7 +69,7 @@ class LangSwitch extends React.PureComponent<Props, State> {
         id={LANG_SWITCH}
         type="button"
         className={buttonClasses}
-        onClick={() => this.toogleButtonState()}
+        onClick={() : void => this.toogleButtonState()}
       >
         <div className={`${LANG_SWITCH}__active`} />
         <ul>

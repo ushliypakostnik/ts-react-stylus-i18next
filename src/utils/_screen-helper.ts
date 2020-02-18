@@ -1,6 +1,6 @@
 // Модуль экранный помощник
 const ScreenHelper = (() => {
-  /* eslint-disable no-unused-vars */
+  /* eslint-disable @typescript-eslint/no-unused-vars */
   const NAME : string = 'ScreenHelper';
 
   const Min : number = 320;

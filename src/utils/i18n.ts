@@ -6,7 +6,6 @@ import { initReactI18next } from 'react-i18next';
 import { LANGUAGES, AUTO_LANG } from '../store/constants';
 import store from '../store/store';
 import { setLanguage } from '../store/modules/utils/actions';
-import { rememberLanguage } from './storage';
 
 const detectorOptions = {
   order: ['navigator'],
@@ -48,14 +47,11 @@ i18n
     if (!AUTO_LANG) {
       if ([ LANGUAGES[0].name, LANGUAGES[1].name ].includes(l)) {
         store.dispatch(setLanguage(l));
-        rememberLanguage(l);
       } else {
         store.dispatch(setLanguage(LANGUAGES[0].name));
-        rememberLanguage(LANGUAGES[0].name);
       }
     } else {
       store.dispatch(setLanguage(AUTO_LANG));
-      rememberLanguage(AUTO_LANG);
     }
   });
 

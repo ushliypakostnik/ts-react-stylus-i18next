@@ -11,7 +11,7 @@ interface StateToProps {
   language: string;
 }
 
-interface Props extends StateToProps, DispatchProps {};
+export interface WithLanguage extends StateToProps, DispatchProps {};
 
 const initialState = {
   language: null,
@@ -19,15 +19,15 @@ const initialState = {
 
 type State = Readonly<typeof initialState>;
 
-const withLanguage = <P extends Props>(Component: React.ComponentType<P>) => {
-  return class extends React.PureComponent<Props, State> {
-    public static getDerivedStateFromProps = (nextProps : Props, prevState : State) => ({
+const withLanguage = <P extends WithLanguage>(Component: React.ComponentType<P>) => {
+  return class extends React.PureComponent<WithLanguage, State> {
+    public static getDerivedStateFromProps = (nextProps : WithLanguage, prevState : State) => ({
       language: nextProps.language,
     });
 
     readonly state : State = initialState;
 
-    render() {
+    public render() {
       const { language } = this.state;
 
       return <Component language={language} {...this.props as P} />;
