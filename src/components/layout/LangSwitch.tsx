@@ -59,7 +59,6 @@ class LangSwitch extends React.PureComponent<Props, State> {
     const language = this.getButtonState() ? LANGUAGES[0].name : LANGUAGES[1].name;
 
     this.props.setLanguage(language);
-    rememberLanguage(language);
   };
 
   render() {
