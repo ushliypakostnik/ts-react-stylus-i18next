@@ -47,7 +47,7 @@ class App extends React.Component<Props, State> {
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   };
 
-  public render() {
+  public render() : React.ReactNode {
     const { isAcceptStorageMessage } = this.state;
 
     return (
