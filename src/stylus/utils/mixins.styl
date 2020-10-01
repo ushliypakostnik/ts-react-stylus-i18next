@@ -9,49 +9,49 @@
 
 
 $lg()
-  @media only screen and (min-width $breackpoints.lg)
+  @media only screen and (min-width $breakpoints.lg)
     {block}
 
 $not-lg()
-  @media only screen and (max-width $breackpoints.sm-max)
+  @media only screen and (max-width $breakpoints.sm-max)
     {block}
 
 $sm-and-md()
-  @media only screen and (min-width $breackpoints.sm) and (max-width $breackpoints.md-max)
+  @media only screen and (min-width $breakpoints.sm) and (max-width $breakpoints.md-max)
     {block}
 
 $not-gadgets()
-  @media only screen and (min-width $breackpoints.md)
+  @media only screen and (min-width $breakpoints.md)
     {block}
 
 $gadgets()
-  @media only screen and (max-width $breackpoints.sm-max)
+  @media only screen and (max-width $breakpoints.sm-max)
     {block}
 
 $md()
-  @media only screen and (min-width $breackpoints.md) and (max-width $breackpoints.md-max)
+  @media only screen and (min-width $breakpoints.md) and (max-width $breakpoints.md-max)
     {block}
 
 $sm()
-  @media only screen and (min-width $breackpoints.sm) and (max-width $breackpoints.sm-max)
+  @media only screen and (min-width $breakpoints.sm) and (max-width $breakpoints.sm-max)
     {block}
 
 $not-xs()
-  @media only screen and (min-width $breackpoints.sm)
+  @media only screen and (min-width $breakpoints.sm)
     {block}
 
 $xs()
-  @media only screen and (max-width $breackpoints.xs-max)
+  @media only screen and (max-width $breakpoints.xs-max)
     {block}
 
 $min()
-  @media only screen and (max-width $breackpoints.xs)
+  @media only screen and (max-width $breakpoints.xs)
     {block}
 
 $min--landscape()
   +$xs()
     +$landscape()
-      @media (max-height: ($breackpoints.min + 10px))
+      @media (max-height: ($breakpoints.min + 10px))
         {block}
 
 $landscape()
@@ -70,19 +70,19 @@ $small-open()
     {block}
 
 $iPadPro--landscape()
-  @media only screen and (orientation landscape) and (min-height 1000px) and (min-width ($breackpoints.md + 1px)) and (max-width 1400px)
+  @media only screen and (orientation landscape) and (min-height 1000px) and (min-width ($breakpoints.md + 1px)) and (max-width 1400px)
     {block}
 
 $iPadPro--portrait()
-  @media only screen and (orientation portrait) and (min-height 1300px) and (min-width ($breackpoints.md - 1px)) and (max-width ($breackpoints.md + 50px))
+  @media only screen and (orientation portrait) and (min-height 1300px) and (min-width ($breakpoints.md - 1px)) and (max-width ($breakpoints.md + 50px))
     {block}
 
 $iPhoneX--landscape()
-  @media only screen and (orientation landscape) and (min-width $breackpoints.sm) and (max-width ($breackpoints.md - 20px)) and (max-height 400px)
+  @media only screen and (orientation landscape) and (min-width $breakpoints.sm) and (max-width ($breakpoints.md - 20px)) and (max-height 400px)
     {block}
 
 $iPhoneX--portrait()
-  @media only screen and (orientation portrait) and (min-height $breackpoints.sm) and (max-height $breackpoints.md - 10px) and (max-width: 450px)
+  @media only screen and (orientation portrait) and (min-height $breakpoints.sm) and (max-height $breakpoints.md - 10px) and (max-width: 450px)
     {block}
 
 // Retina 2x
